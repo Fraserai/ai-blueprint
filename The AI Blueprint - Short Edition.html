@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>The AI Blueprint</title><meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+:root{
+  --ink:#17130f; --ink-soft:#4a423b; --muted:#82786e;
+  --rule:#ddd5c9; --paper:#fffdf9; --tint:#f7f3ec; --accent:#b4553a;
+}
+*{box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;background:#e9e4da;color:var(--ink);
+  font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  font-size:10.6pt;line-height:1.55;}
+.sheet{background:var(--paper);width:210mm;min-height:297mm;margin:14mm auto;
+  padding:22mm 20mm 18mm;box-shadow:0 2px 24px rgba(0,0,0,.14);position:relative;}
+@media print{
+  body{background:#fff}
+  .sheet{width:auto;min-height:0;margin:0;padding:0;box-shadow:none;background:#fff}
+  .sheet + .sheet{break-before:page;page-break-before:always}
+  @page{size:A4;margin:22mm 20mm 18mm}
+}
+h1,h2,h3{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:600;letter-spacing:-.022em}
+p{margin:0 0 9pt}
+a{color:var(--accent);text-decoration:none}
+.eyebrow{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:7.6pt;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.muted{color:var(--muted)}
+
+.cover{padding-top:30mm;min-height:250mm;display:flex;flex-direction:column}
+.cover .title{font-size:56pt;line-height:.92;margin:10pt 0 0;letter-spacing:-.038em}
+.cover .dek{font-size:13.5pt;line-height:1.4;color:var(--ink-soft);max-width:128mm;margin:16pt 0 0}
+.byline{margin-top:14pt;font-size:9.4pt;color:var(--ink-soft)}
+.rule-thick{border-top:2pt solid var(--ink);margin:24pt 0 12pt}
+.say{list-style:none;padding:0;margin:0}
+.say li{padding:8pt 0;border-bottom:.6pt solid var(--rule);display:grid;
+  grid-template-columns:10mm 1fr;gap:3mm;align-items:baseline}
+.say .n{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:7.6pt;
+  color:var(--accent);letter-spacing:.1em}
+.say b{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:10.4pt;font-weight:600;display:block}
+.say span.d{font-size:9pt;color:var(--muted);display:block;margin-top:2pt}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:6mm;margin-top:20pt;
+  padding-top:12pt;border-top:.6pt solid var(--rule)}
+.stats .v{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:17pt;
+  letter-spacing:-.02em;display:block}
+.stats .k{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:7pt;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.sec{padding-top:8mm;min-height:248mm;display:flex;flex-direction:column}
+.sec .num{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:9pt;
+  letter-spacing:.18em;color:var(--accent);font-weight:600}
+.sec h2{font-size:15pt;margin:6pt 0 0;color:var(--ink-soft);font-weight:600}
+.sec .rule{font-size:31pt;line-height:1.13;letter-spacing:-.03em;margin:18pt 0 22pt;
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:600}
+.sec p.body{font-size:12pt;line-height:1.68;margin:0 0 12pt;max-width:160mm}
+.proof{margin-top:20pt;padding-top:10pt;border-top:.6pt solid var(--rule)}
+.proof .label{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:7pt;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:600;
+  display:block;margin-bottom:6pt}
+.proof p{font-size:9.2pt;line-height:1.55;color:var(--ink-soft);margin:0 0 6pt;max-width:158mm}
+.closing{min-height:248mm;display:flex;flex-direction:column}
+.closing h2{font-size:30pt;line-height:1.1;letter-spacing:-.03em;margin:14pt 0 14pt}
+.closing p{font-size:11.6pt;line-height:1.6}
+.pg{margin-top:auto;padding-top:6pt;border-top:.6pt solid var(--rule);
+  display:flex;justify-content:space-between;
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:7.2pt;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.actbox{border:1pt solid var(--ink);padding:13pt 15pt;margin-top:20pt}
+.actbox .k{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:7pt;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:6pt}
+.actbox p{font-size:12pt;font-weight:600;margin:0;line-height:1.4;
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;letter-spacing:-.015em}
+footer.note{border-top:.6pt solid var(--rule);margin-top:20pt;padding-top:8pt;
+  font-size:8pt;color:var(--muted)}
+</style></head><body>
+<section class="sheet">
+  <div class="cover">
+    <div class="eyebrow">A field guide · 28 October 2026</div>
+    <h1 class="title">The AI<br>Blueprint</h1>
+    <p class="dek">Four moves for any organisation, from one person to a million staff.</p>
+    <div class="byline">Written by Caesey Fraser</div>
+
+    <hr class="rule-thick">
+    <div class="eyebrow muted">The blueprint in four lines</div>
+    <ul class="say" style="margin-top:6pt">
+      <li><span class="n">01</span><span><b>Coding agents, every day</b>
+        <span class="d">The superpower. Go hard.</span></span></li>
+      <li><span class="n">02</span><span><b>Open models alongside the closed frontier</b>
+        <span class="d">Both, as much as you can. And, not or.</span></span></li>
+      <li><span class="n">03</span><span><b>Stay at the frontier, daily</b>
+        <span class="d">X + YouTube + LLMs. 30 minutes a day.</span></span></li>
+      <li><span class="n">04</span><span><b>Cost, review and security from day one</b>
+        <span class="d">Track spend, scale review, lock down access.</span></span></li>
+    </ul>
+
+    <div class="stats">
+      <div><span class="v">37,788</span><span class="k">Messages to AI</span></div>
+      <div><span class="v">1,060</span><span class="k">Active days</span></div>
+      <div><span class="v">1,671</span><span class="k">Hours, estimated</span></div>
+      <div><span class="v">270</span><span class="k">Day streak</span></div>
+    </div>
+    <p style="font-size:8.6pt;color:var(--muted);margin-top:10pt">Across ChatGPT, Claude, Claude Code
+    and Codex, January 2023 to 15 October 2026.</p>
+  </div>
+</section><section class="sheet">
+  <div class="sec">
+    <div class="num">SECTION 01</div>
+    <h2>Coding agents</h2>
+    <div class="rule">Use coding<br>agents every day.</div>
+    <p class='body'>If you aren't, you're missing the biggest advantage available right now. If you are, do more of it.</p><p class='body'>This is the superpower, and I treat it like one: I command a legion of agent swarms. Start with one agent, one repository, one person. Move to a team where the agent is the default keyboard. Then stop counting sessions and start counting shipped work.</p><p class='body'>The tell is not how many sessions your team runs. It is how much of the backlog moved. Pick the work that has sat in the queue for months and hand it to the agent first.</p>
+    <div class="proof"><span class="label">Proof</span><p>OpenAI reported Codex enterprise adoption up more than 5x between January and April 2026. Cursor's agents now operate any desktop app, so a single agent can build an iOS feature, run it in the simulator and fix its own code.</p><p>On one day in October, Hermes Agent processed 1.98 trillion tokens on OpenRouter and Claude Code 1.45 trillion. A 50+ turn coding session costs $0.19 on an open model. The constraint is not budget; it is imagination and review capacity.</p></div>
+    <div class="pg"><span>The AI Blueprint</span><span>01 — Coding agents</span></div>
+  </div>
+</section><section class="sheet">
+  <div class="sec">
+    <div class="num">SECTION 02</div>
+    <h2>The portfolio</h2>
+    <div class="rule">Both, as much as<br>you can. And, not or.</div>
+    <p class='body'>Use as much frontier closed as you can. Then go further: get your hands dirty with open models — research them, test them, run them inside your coding agents, and understand the open market properly.</p><p class='body'>The frontier is where the hardest reasoning lives, and it is worth the premium. Open weights are where volume, control, cost and privacy live. A serious organisation runs a portfolio, not a favourite.</p><p class='body'>In practice: one frontier subscription for the work that has to be right, one open endpoint for the work that has to be cheap. Run the same task on both before you decide which is which.</p>
+    <div class="proof"><span class="label">Proof</span><p>On the Artificial Analysis Intelligence Index of 27 October the best model scores 58, the best open-weight model 32, and Kimi K3.1 Pro 46 with its weights due on 4 November. Open weights are 71% of OpenRouter tokens and 21% of enterprise spend, at the same time.</p><p>A single index task costs $0.41 on Claude Haiku 5.5 and $10.04 on Claude Opus 5.5 — a 24x spread for work that is often good enough either way.</p></div>
+    <div class="pg"><span>The AI Blueprint</span><span>02 — The portfolio</span></div>
+  </div>
+</section><section class="sheet">
+  <div class="sec">
+    <div class="num">SECTION 03</div>
+    <h2>The habit</h2>
+    <div class="rule">AI moves per day,<br>not per month.</div>
+    <p class='body'>I have stayed at the frontier since November 2022 on a few hours a day: reading, watching, listening, asking, and using whatever happened in AI that day. The stack is X, YouTube and LLMs — ChatGPT, Claude, Grok — and that is all you need.</p><p class='body'>For a team, make it culture rather than a newsletter: 30 minutes a day, every person, no exceptions, with one named owner. Check in once a quarter and you have missed all of it.</p><p class='body'>Keep a shared note of what changed and what you tried. After a year that note is the most valuable internal document your company owns, and nobody can buy it.</p>
+    <div class="proof"><span class="label">Proof</span><p>Five releases in the twenty days to 27 October: Claude Haiku 5.5, Gemini 4 Argon, Meta's Muse Spark Open, Kimi K3.1 Pro and GPT-6.1 Terra. Each one moved the price or the frontier, and two moved both.</p></div>
+    <div class="pg"><span>The AI Blueprint</span><span>03 — The habit</span></div>
+  </div>
+</section><section class="sheet">
+  <div class="sec">
+    <div class="num">SECTION 04</div>
+    <h2>The guardrails</h2>
+    <div class="rule">Get ahead of security,<br>track everything,<br>humans in charge.</div>
+    <p class='body'>Sign up for OpenAI Daybreak and Claude Mythos, create AI cyber harnesses and point them at your own infrastructure before someone points theirs at you.</p><p class='body'>Track cost, token spend, time and output — with tooling you build or whatever is already out there. Humans stay on top, in charge and in control of everything. An agent that can ship code must be an agent someone can stop.</p><p class='body'>Report three numbers monthly, trending: what one task costs, what a session costs, and how much of your usage is open. That is governance, and it fits on one slide.</p>
+    <div class="proof"><span class="label">Proof</span><p>A poisoned <i>AGENTS.md</i> file hijacked Codex in over 90% of attempts. Uber reportedly spent its full-year 2026 AI coding budget in four months. OpenAI reported that two of its own internal coding agents weakened the systems monitoring them.</p></div>
+    <div class="pg"><span>The AI Blueprint</span><span>04 — The guardrails</span></div>
+  </div>
+</section><section class="sheet">
+  <div class="closing">
+    <div class="eyebrow">Closing</div>
+    <h2>The next<br>365 days</h2>
+    <p>Do all four, every day, for the next 365 days and ride every wave that comes. You can't
+    picture where you'll be at the end of it.</p>
+    <p>This is a snapshot of today. The models and tools named here will change. The four moves and
+    the daily habit won't. It works for one person or a million staff.</p>
+
+    <div class="actbox">
+      <span class="k">If you only do one thing this week</span>
+      <p>Put one coding agent in front of one real repository, with one named owner, and report what
+      shipped on Friday.</p>
+    </div>
+
+    <p style="margin-top:22pt;font-size:9pt;color:var(--muted)">Every number in this document is
+    sourced. The charts behind them are in the Evidence Pack, sent separately.</p>
+
+    <div class="pg" style="margin-top:auto"><span>The AI Blueprint · Caesey Fraser</span><span>28 October 2026</span></div>
+  </div>
+</section>
+</body></html>
